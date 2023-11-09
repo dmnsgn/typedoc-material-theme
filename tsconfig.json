@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "commonjs",
-    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "outDir": "dist",
-
     "jsx": "react",
     "jsxFactory": "JSX.createElement",
-    "jsxFragmentFactory": "JSX.Fragment"
+    "jsxFragmentFactory": "JSX.Fragment",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "noImplicitThis": false,
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022"
   },
-  "include": ["src"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "web_modules", "**/*.spec.ts"]
 }

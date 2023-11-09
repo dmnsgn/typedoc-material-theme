@@ -1,26 +1,57 @@
 {
-  "name": "typedoc-custom-theme-demo",
-  "version": "2.0.0",
-  "main": "dist/index.js",
-  "repository": "git@github.com:Gerrit0/typedoc-custom-theme-demo.git",
-  "author": "Gerrit Birkeland <gerrit@gerritbirkeland.com>",
-  "license": "MIT",
+  "name": "typedoc-material-theme",
+  "version": "1.0.0",
+  "description": "A TypeDoc theme based on Material 3.",
   "keywords": [
-    "typedoc-theme"
+    "typedoc-theme",
+    "typedoc-plugin",
+    "material",
+    "material-design",
+    "material-3",
+    "typedocplugin",
+    "typescript",
+    "documentation"
   ],
-  "engines": {
-    "node": ">= 14"
+  "homepage": "https://github.com/dmnsgn/typedoc-material-theme",
+  "bugs": "https://github.com/dmnsgn/typedoc-material-theme/issues",
+  "repository": "dmnsgn/typedoc-material-theme",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
+  "sideEffects": false,
+  "type": "module",
+  "exports": "./lib/index.js",
+  "main": "lib/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "dev": "npm run dev:watch & npm run dev:serve",
+    "dev:serve": "npx browser-sync ./docs --watch --single",
+    "dev:watch": "node --watch-path ./src --watch-path ./assets ./scripts/dev.mjs",
+    "pretest": "tsc",
+    "test": "typedoc src/** --plugin ./lib/index.js --themeColor '#cb9820'"
+  },
+  "dependencies": {
+    "@material/material-color-utilities": "^0.2.7"
   },
   "devDependencies": {
-    "typedoc": "^0.23.0",
-    "typescript": "^4.7.4"
+    "@types/node": "^20.9.0",
+    "typedoc": "^0.25.3",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "typedoc": "^0.23.0"
+    "typedoc": "^0.25.3"
   },
-  "scripts": {
-    "build": "tsc",
-    "predocs": "tsc",
-    "docs": "typedoc src --plugin dist/index.js"
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.6.4"
   }
 }

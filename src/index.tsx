@@ -1,83 +1,70 @@
-import {
-  Application,
-  JSX,
-  DefaultTheme,
-  PageEvent,
-  Reflection,
-  DefaultThemeRenderContext,
-  Options,
-} from "typedoc";
+import { cpSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { Application, JSX, RendererEvent, ParameterType } from "typedoc";
+
+import { getThemeCSSProperties } from "./theme.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 /**
- * A clone of the default theme, which prints a message when rendering each page.
- */
-export class LoggingTheme extends DefaultTheme {
-  render(page: PageEvent<Reflection>): string {
-    this.application.logger.info(`Rendering ${page.url}`);
-    return super.render(page);
-  }
-}
-
-/**
- * The theme context is where all of the partials live for rendering a theme,
- * in addition to some helper functions.
- */
-export class FooterOverrideThemeContext extends DefaultThemeRenderContext {
-  constructor(theme: DefaultTheme, options: Options) {
-    super(theme, options);
-
-    const oldFooter = this.footer;
-
-    // Overridden methods must have `this` bound if they intend to use it.
-    // <JSX.Raw /> may be used to inject HTML directly.
-    this.footer = () => {
-      return (
-        <>
-          {oldFooter()}
-          <div class="container">
-            <JSX.Raw
-              html={this.markdown(
-                "Custom footer text, with **markdown** support!"
-              )}
-            />
-          </div>
-        </>
-      );
-    };
-  }
-}
-
-/**
- * A near clone of the default theme, that adds some custom text after the footer.
- */
-export class FooterOverrideTheme extends DefaultTheme {
-  private _contextCache?: FooterOverrideThemeContext;
-
-  override getRenderContext(): FooterOverrideThemeContext {
-    this._contextCache ||= new FooterOverrideThemeContext(
-      this,
-      this.application.options
-    );
-    return this._contextCache;
-  }
-}
-
-/**
- * Called by TypeDoc when loading this theme as a plugin. Should be used to define themes which
- * can be selected by the user.
+ * Called by TypeDoc when loaded as a plugin.
  */
 export function load(app: Application) {
-  // Hooks can be used to inject some HTML without fully overwriting the theme.
-  app.renderer.hooks.on("body.begin", (_) => (
+  app.options.addDeclaration({
+    name: "themeColor",
+    help: "Material Theme: Material 3 source color to derive the theme from.",
+    type: ParameterType.String,
+    defaultValue: "#cb9820",
+  });
+
+  const styles = getThemeCSSProperties(
+    app.options.getValue("themeColor") as string,
+  );
+
+  app.renderer.hooks.on("head.end", (event) => (
+    <>
+      <style>
+        <JSX.Raw html={styles} />
+      </style>
+      <link
+        rel="stylesheet"
+        href={event.relativeURL("assets/material-style.css")}
+      />
+    </>
+  ));
+  app.renderer.hooks.on("body.end", (event) => (
     <script>
-      <JSX.Raw html="console.log(`Loaded ${location.href}`)" />
+      <JSX.Raw
+        html={
+          /* js */ `
+          try {
+            const generateLinkElement = document.querySelector(".tsd-generator a");
+            const link = document.createElement("a");
+            Object.assign(link, {
+              href: "https://github.com/dmnsgn/typedoc-material-theme",
+              target: "_blank",
+              rel: "noreferrer",
+              innerText: "typedoc-material-theme."
+            });
+            generateLinkElement.insertAdjacentElement("afterend", link);
+            generateLinkElement.insertAdjacentText("afterend", " with ");
+          } catch (error) {
+
+          }
+        `
+        }
+      />
     </script>
   ));
 
-  // Or you can define a custom theme. This one behaves exactly like the default theme,
-  // but logs a message when rendering a page.
-  app.renderer.defineTheme("logging", LoggingTheme);
-
-  // While this one overwrites the footer to include custom content.
-  app.renderer.defineTheme("footer", FooterOverrideTheme);
+  app.listenTo(app.renderer, RendererEvent.END, () => {
+    const from = resolve(__dirname, "../assets/style.css");
+    const to = resolve(
+      app.options.getValue("out"),
+      "assets/material-style.css",
+    );
+    cpSync(from, to);
+  });
 }
