@@ -53,5 +53,9 @@
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=9.6.4"
+  },
+  "snowdev": {
+    "files": "src/**/*.tsx",
+    "lint": false
   }
 }
