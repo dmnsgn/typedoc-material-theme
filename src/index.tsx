@@ -19,14 +19,14 @@ export function load(app: Application) {
     defaultValue: "#cb9820",
   });
 
-  const styles = getThemeCSSProperties(
-    app.options.getValue("themeColor") as string,
-  );
-
   app.renderer.hooks.on("head.end", (event) => (
     <>
       <style>
-        <JSX.Raw html={styles} />
+        <JSX.Raw
+          html={getThemeCSSProperties(
+            app.options.getValue("themeColor") as string,
+          )}
+        />
       </style>
       <link
         rel="stylesheet"
