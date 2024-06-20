@@ -48,9 +48,9 @@
     "@material/material-color-utilities": "^0.2.7"
   },
   "devDependencies": {
-    "@types/node": "^20.9.0",
-    "typedoc": "^0.25.3",
-    "typescript": "^5.2.2"
+    "@types/node": "^20.14.6",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.5.2"
   },
   "peerDependencies": {
     "typedoc": "^0.25.3"
@@ -61,6 +61,7 @@
   },
   "snowdev": {
     "files": "src/**/*.tsx",
-    "lint": false
+    "lint": false,
+    "updateVersions": false
   }
 }
