@@ -29,7 +29,12 @@
   "author": "Damien Seguin (https://github.com/dmnsgn)",
   "sideEffects": false,
   "type": "module",
-  "exports": "./lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
   "main": "lib/index.js",
   "types": "types/index.d.ts",
   "scripts": {
