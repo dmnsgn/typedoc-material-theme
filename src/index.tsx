@@ -24,7 +24,7 @@ export function load(app: Application) {
       <style>
         <JSX.Raw
           html={getThemeCSSProperties(
-            app.options.getValue("themeColor") as string,
+            app.options.getValue("themeColor") as string
           )}
         />
       </style>
@@ -59,11 +59,11 @@ export function load(app: Application) {
     </script>
   ));
 
-  app.listenTo(app.renderer, RendererEvent.END, () => {
+  app.renderer.on(RendererEvent.END, () => {
     const from = resolve(__dirname, "../assets/style.css");
     const to = resolve(
       app.options.getValue("out"),
-      "assets/material-style.css",
+      "assets/material-style.css"
     );
     cpSync(from, to);
   });
