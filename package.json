@@ -1,6 +1,6 @@
 {
   "name": "typedoc-material-theme",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A TypeDoc theme based on Material 3.",
   "keywords": [
     "typedoc-theme",
@@ -14,7 +14,10 @@
   ],
   "homepage": "https://github.com/dmnsgn/typedoc-material-theme",
   "bugs": "https://github.com/dmnsgn/typedoc-material-theme/issues",
-  "repository": "dmnsgn/typedoc-material-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnsgn/typedoc-material-theme.git"
+  },
   "funding": [
     {
       "type": "individual",

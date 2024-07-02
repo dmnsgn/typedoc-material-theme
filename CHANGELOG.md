@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# [1.1.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.0.3...v1.1.0) (2024-07-02)
+
+
+### Features
+
+* add back support for typedoc 0.25.13 ([7cf777d](https://github.com/dmnsgn/typedoc-material-theme/commit/7cf777dab57a71d79fda2470bfb0f3a61e688819))
+* support typedoc `v0.26` ([8901412](https://github.com/dmnsgn/typedoc-material-theme/commit/8901412f676bfe22b5252e7722b09a0879b78e8e))
+
+
+### Reverts
+
+* Revert "chore: remove included build files" ([e164d88](https://github.com/dmnsgn/typedoc-material-theme/commit/e164d88d54455d98514832201ab1ae8bf6b759ac))
+
+
+
 ## [1.0.3](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.0.2...v1.0.3) (2024-06-20)
 
 
