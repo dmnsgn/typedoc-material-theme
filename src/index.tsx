@@ -59,12 +59,21 @@ export function load(app: Application) {
     </script>
   ));
 
-  app.renderer.on(RendererEvent.END, () => {
+  const onRenderEnd = () => {
     const from = resolve(__dirname, "../assets/style.css");
     const to = resolve(
       app.options.getValue("out"),
       "assets/material-style.css",
     );
     cpSync(from, to);
-  });
+  };
+
+  // Support for 0.25.x
+  // @ts-ignore
+  if (typeof app.listenTo === "function") {
+    // @ts-ignore
+    app.listenTo(app.renderer, RendererEvent.END, onRenderEnd);
+  } else {
+    app.renderer.on(RendererEvent.END, onRenderEnd);
+  }
 }
