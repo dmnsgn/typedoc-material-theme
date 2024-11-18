@@ -49,6 +49,8 @@
   --color-scheme: var(--md-sys-color-scheme); */
 
   --top-app-bar-height: 4.5rem;
+  --top-app-bar-padding-vertical: 8px;
+  --top-app-bar-search-icon-width: 60px;
   --footer-height: 3.5rem;
 }
 
@@ -96,16 +98,14 @@ img {
   position: relative;
 }
 .title {
-  display: block;
-  max-width: calc(100% - 5rem);
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 22px;
 }
-
 .tsd-page-toolbar {
-  padding: 8px 0;
+  padding: var(--top-app-bar-padding-vertical) 0;
   height: calc(var(--top-app-bar-height) - 16px);
   background-color: var(--color-background);
   border-bottom: none;
@@ -121,12 +121,58 @@ img {
   padding: 20px 0;
 }
 #tsd-search {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   line-height: 56px;
   border-radius: 22px;
+  padding-right: var(--top-app-bar-search-icon-width);
+  max-width: calc(100% - var(--top-app-bar-search-icon-width));
+}
+#tsd-search .field,
+#tsd-search .field label,
+#tsd-search .field #tsd-toolbar-links {
+  position: relative;
+  top: unset;
+  right: unset;
+  bottom: unset;
+  left: unset;
+}
+#tsd-search .field {
+  position: relative;
+  flex: 0 0 0;
+}
+#tsd-search .field:first-child {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+#tsd-search.has-focus .field:first-child {
+  z-index: 2;
+}
+#tsd-search .field label,
+#tsd-search .field .tsd-toolbar-icon {
+  height: 100%;
+  margin: 0 auto;
+}
+#tsd-search .field .tsd-toolbar-icon {
+  display: flex;
+  justify-content: center;
+}
+#tsd-search .field .tsd-widget.no-caption {
+  width: var(--top-app-bar-search-icon-width);
+}
+#tsd-search .field input {
+  padding: 24px;
+  font-size: 1.175rem;
+  top: calc(-100% - var(--top-app-bar-padding-vertical));
 }
 #tsd-search .results {
   z-index: -1;
   top: calc(56px - 22px);
+  left: 0;
   padding-top: 22px;
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.125);
   background-color: var(--color-background-secondary);
