@@ -64,15 +64,33 @@ img {
   max-width: 100%;
 }
 
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+  }
 }
-*::-webkit-scrollbar-track {
-  background: none;
-}
-*::-webkit-scrollbar-thumb {
-  border: none;
+
+@supports selector(::-webkit-scrollbar) {
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: none;
+    margin: 4px;
+  }
+  *::-webkit-scrollbar-thumb {
+    border: none;
+  }
+  *::-webkit-scrollbar-thumb:hover,
+  *::-webkit-scrollbar-thumb:active {
+    background-color: var(--md-sys-color-secondary);
+  }
+  * {
+    scrollbar-width: unset;
+    scrollbar-color: unset;
+  }
 }
 
 .container-main {
