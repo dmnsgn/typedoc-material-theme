@@ -48,12 +48,12 @@
     "test": "typedoc src/** --plugin ./lib/index.js --themeColor '#cb9820'"
   },
   "dependencies": {
-    "@material/material-color-utilities": "^0.2.7"
+    "@material/material-color-utilities": "^0.3.0"
   },
   "devDependencies": {
-    "@types/node": "^20.14.6",
-    "typedoc": "^0.26.3",
-    "typescript": "^5.5.2"
+    "@types/node": "^22.10.0",
+    "typedoc": "^0.26.11",
+    "typescript": "^5.6.x"
   },
   "peerDependencies": {
     "typedoc": "^0.25.13 || ^0.26.x"
