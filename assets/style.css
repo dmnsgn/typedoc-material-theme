@@ -129,6 +129,9 @@ img {
   text-overflow: ellipsis;
   font-size: 22px;
 }
+.tsd-page-title {
+  word-break: break-all;
+}
 .tsd-page-toolbar {
   padding: var(--top-app-bar-padding-vertical) 0;
   height: calc(var(--top-app-bar-height) - 16px);
