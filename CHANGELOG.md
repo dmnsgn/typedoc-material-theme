@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# [1.2.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.1.0...v1.2.0) (2024-11-26)
+
+
+### Bug Fixes
+
+* bare-minimum scrollbar not working on Chrome 121+ ([#10](https://github.com/dmnsgn/typedoc-material-theme/issues/10)) ([17a9de7](https://github.com/dmnsgn/typedoc-material-theme/commit/17a9de7b26983d3b55b9fd32fe31afe4046dae5b))
+* changed package.json to use non-fixed version of typedoc ([d69cc96](https://github.com/dmnsgn/typedoc-material-theme/commit/d69cc96b9b7af21bddc10d84a314f2d87bf94303))
+* page-toolbar styling issue with overlapping elements ([#8](https://github.com/dmnsgn/typedoc-material-theme/issues/8)) ([e89fa11](https://github.com/dmnsgn/typedoc-material-theme/commit/e89fa11609ac22cc45a88d9904b93f9173a5105c))
+* updated typdoc to include 0.26.11 ([676f344](https://github.com/dmnsgn/typedoc-material-theme/commit/676f3441ccae31cf1a9fb2abff5fbf654dccbca5))
+
+
+### Features
+
+* add word-break for long page title ([86be2b3](https://github.com/dmnsgn/typedoc-material-theme/commit/86be2b3352c053b34fa6c229332abb0bfdd12302))
+
+
+
 # [1.1.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.0.3...v1.1.0) (2024-07-02)
 
 
