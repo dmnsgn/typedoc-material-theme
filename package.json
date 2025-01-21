@@ -65,6 +65,7 @@
   "snowdev": {
     "files": "src/**/*.tsx",
     "lint": false,
-    "updateVersions": false
+    "updateVersions": false,
+    "docs": false
   }
 }
