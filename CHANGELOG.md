@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# [1.3.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.2.0...v1.3.0) (2025-01-21)
+
+
+### Bug Fixes
+
+* update search input top position to support typedoc@0.27 ([1cd3beb](https://github.com/dmnsgn/typedoc-material-theme/commit/1cd3beb77bdc31a8558f4e156bce5c074759a004)), closes [#17](https://github.com/dmnsgn/typedoc-material-theme/issues/17) [#18](https://github.com/dmnsgn/typedoc-material-theme/issues/18)
+
+
+
 # [1.2.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.1.0...v1.2.0) (2024-11-26)
 
 
