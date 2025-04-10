@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# [1.4.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.3.0...v1.4.0) (2025-04-10)
+
+
+### Features
+
+* update style for new search box to support typedoc@0.28 ([8fab28d](https://github.com/dmnsgn/typedoc-material-theme/commit/8fab28d86561ad5e46b0fb1b602e645d99af090d))
+
+
+
 # [1.3.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.2.0...v1.3.0) (2025-01-21)
 
 
