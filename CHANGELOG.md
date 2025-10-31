@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.4.1](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.4.0...v1.4.1) (2025-10-31)
+
+
+### Bug Fixes
+
+* make accordion chevron relative to col-content ([c9ec129](https://github.com/dmnsgn/typedoc-material-theme/commit/c9ec1294fe6bc882fababcf5367b6df98c9c0ff9))
+
+
+
 # [1.4.0](https://github.com/dmnsgn/typedoc-material-theme/compare/v1.3.0...v1.4.0) (2025-04-10)
 
 
